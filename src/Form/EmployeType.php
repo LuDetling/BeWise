@@ -17,6 +17,7 @@ class EmployeType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('email', EmailType::class)
+            ->add('password')
             ->add('statut')
             ->add('dateArrivee', DateType::class, ['widget' => 'single_text', 'label' => 'Date d\'entrée'])
         ;

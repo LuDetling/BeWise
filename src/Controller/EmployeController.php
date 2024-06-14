@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Employe;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -79,6 +80,24 @@ class EmployeController extends AbstractController
         return $this->render('employe/employe.html.twig', [
             'employe' => $employe,
             'form' => $form->createView(),
+        ]);
+    }
+
+    #[Route('/signup', name:'app_signup')]
+    public function signup(Request $request): Response
+    {
+        $employe = new Employe();
+        $form = $this->createForm(EmployeType::class, $employe);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $this->entityManager->persist($employe);
+            $this->entityManager->flush();
+            return $this->redirectToRoute('home');
+        }
+
+        return $this->render('employe/signup.html.twig', [
+            'form' => $form->createView()
         ]);
     }
 }

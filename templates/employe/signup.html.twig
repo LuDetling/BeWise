@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription
+{% endblock %}
+
+{% block header %}
+	<h1>Inscription</h1>
+{% endblock %}
+
+{% block body %}
+	{{ form_start(form) }}
+
+	{{ form_row(form.nom) }}
+	{{ form_row(form.prenom) }}
+	{{ form_row(form.email) }}
+	{{ form_row(form.password) }}
+	<div class="form-flex">
+		{{ form_row(form.dateArrivee) }}
+		{{ form_row(form.statut) }}
+	</div>
+	<button class="button button-submit">Bienvenue</button>
+	{{ form_end(form) }}
+
+{% endblock %}
