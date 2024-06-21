@@ -1,14 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap");
+@import url("./accueil.css");
 
-html, body {
+html,
+body {
     margin: 0;
     min-height: 100vh;
-    background-color: #FEFBFB;
+    background-color: #fefbfb;
 }
 
 * {
     box-sizing: border-box;
-    font-family: 'Manrope', sans-serif;
+    font-family: "Manrope", sans-serif;
 }
 
 .sf-toolbar {
@@ -24,7 +26,7 @@ nav {
     width: 300px;
     flex-grow: 0;
     flex-shrink: 0;
-    background: url('/img/bg-menu.svg') center bottom no-repeat #1C5B50;
+    background: url("/img/bg-menu.svg") center bottom no-repeat #1c5b50;
     padding: 50px 15px;
 }
 
@@ -54,7 +56,7 @@ ul#main-menu li a {
     align-items: center;
     gap: 25px;
     text-decoration: none;
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 14px;
     font-weight: 700;
     margin-bottom: 15px;
@@ -64,12 +66,12 @@ ul#main-menu li a {
 }
 
 ul#main-menu li:hover a {
-    background: #DCFDAD50;
+    background: #dcfdad50;
 }
 
 ul#main-menu li.active a {
-    background: #DCFDAD;
-    color: #1C5B50;
+    background: #dcfdad;
+    color: #1c5b50;
 }
 
 ul#main-menu i {
@@ -79,7 +81,7 @@ ul#main-menu i {
 }
 
 header {
-    background: #4D8077;
+    background: #4d8077;
     height: 155px;
     padding: 30px 80px 10px 80px;
 }
@@ -106,7 +108,7 @@ div#content {
     height: 116px;
     box-shadow: 0px 3px 11px 4px #00000013;
     background: white;
-    color: #1C5B50;
+    color: #1c5b50;
     font-weight: 700;
     border-radius: 10px;
     position: relative;
@@ -125,11 +127,13 @@ div#content {
     padding: 15px;
 }
 
-.card-project > a, .card-project .card-project-icons {
+.card-project > a,
+.card-project .card-project-icons {
     transition: 0.3s;
 }
 
-.card-project:hover > a, .card-project:hover .card-project-icons {
+.card-project:hover > a,
+.card-project:hover .card-project-icons {
     opacity: 0.7;
 }
 
@@ -161,11 +165,11 @@ div#projects-container {
 }
 
 .card-project-icons i.fa-trash {
-    color: #E14343;
+    color: #e14343;
 }
 
 .card-project-icons i.fa-pen {
-    color: #4D8077;
+    color: #4d8077;
 }
 
 .add-project-icon {
@@ -187,7 +191,7 @@ div#projects-container {
     align-items: center;
     justify-content: center;
     margin-left: -12px;
-    background: #1C5B50;
+    background: #1c5b50;
     border: 1px solid lightgray;
 }
 
@@ -199,13 +203,13 @@ div#projects-container {
 }
 
 .button {
-    background: #B1D89D;
+    background: #b1d89d;
     padding: 0 15px;
     border-radius: 10px;
     height: 54px;
     display: flex;
     align-items: center;
-    color: #4D8077;
+    color: #4d8077;
     font-family: Manrope;
     font-size: 14px;
     font-weight: 700;
@@ -225,7 +229,7 @@ div#tasks-container {
 
 .task-column {
     width: 310px;
-    border: 1px solid #D9D9D9;
+    border: 1px solid #d9d9d9;
     background: white;
     border-radius: 15px;
     padding: 20px 12px;
@@ -234,7 +238,7 @@ div#tasks-container {
 
 .task-column h2 {
     font-size: 18px;
-    color: #1C5B50;
+    color: #1c5b50;
     margin-bottom: 30px;
     margin-left: 18px;
 }
@@ -243,7 +247,7 @@ a.task {
     display: flex;
     min-height: 91px;
     text-decoration: none;
-    background: #F5F5F5;
+    background: #f5f5f5;
     color: #202020;
     flex-direction: column;
     justify-content: center;
@@ -261,7 +265,7 @@ a.task h3 {
 a.task p {
     font-size: 12px;
     line-height: 24px;
-    color: #5C5C5C;
+    color: #5c5c5c;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -276,7 +280,7 @@ a.task p {
     line-height: 24px;
     letter-spacing: 0em;
     text-align: left;
-    color: #5C5C5C;
+    color: #5c5c5c;
     display: flex;
     align-items: center;
     gap: 7px;
@@ -295,11 +299,11 @@ a.task p {
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background: #1C5B50;
+    background: #1c5b50;
     font-size: 8px;
     font-weight: 700;
     line-height: 8px;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 a.task-add {
@@ -321,20 +325,20 @@ table#team-container {
 }
 
 table#team-container th {
-    color: #1C5B50;
+    color: #1c5b50;
     font-size: 18px;
     text-align: left;
-    border-bottom: 1px solid #D9D9D9;
+    border-bottom: 1px solid #d9d9d9;
     padding: 15px 20px;
     padding-bottom: 35px;
 }
 
 table#team-container tbody tr:nth-child(2n + 1) td {
-    background: #FFFFFF;
+    background: #ffffff;
 }
 
 table#team-container tr td {
-    border-bottom: 1px solid #D9D9D9;
+    border-bottom: 1px solid #d9d9d9;
     padding: 15px 20px;
 }
 
@@ -357,7 +361,7 @@ table#team-container tr td {
     letter-spacing: 0em;
     text-align: center;
     color: #fff;
-    background: #1C5B50;
+    background: #1c5b50;
     border-radius: 50%;
 }
 
@@ -377,15 +381,15 @@ table#team-container tbody tr td:last-child {
 }
 
 a.button-edit-team {
-    background: #1F5B50;
-    color: #FEFBFB;
+    background: #1f5b50;
+    color: #fefbfb;
     text-decoration: none;
     width: 125px;
     justify-content: center;
 }
 
 a.delete-team {
-    color: #E14343;
+    color: #e14343;
     font-size: 14px;
     font-weight: 600;
 }
@@ -395,8 +399,10 @@ table#team-container thead tr th:last-child {
     width: 315px;
 }
 
-form input, form select, form textarea {
-    border: 1px solid #B5B5B5;
+form input,
+form select,
+form textarea {
+    border: 1px solid #b5b5b5;
     display: block;
     background: white;
     height: 50px;
@@ -433,7 +439,7 @@ form label {
 
 button.button.button-submit {
     width: 100%;
-    background: #1F5B50;
+    background: #1f5b50;
     border-radius: 10px;
     font-family: Manrope;
     font-size: 14px;
@@ -450,13 +456,13 @@ button.button.button-submit {
 form ul {
     list-style: none;
     padding: 0;
-    color: #E14343;
+    color: #e14343;
     margin: 0;
     font-style: italic;
 }
 
 a.delete-task {
-    color: #E14343;
+    color: #e14343;
     font-size: 14px;
     font-weight: 600;
     text-align: center;
@@ -465,7 +471,7 @@ a.delete-task {
 }
 
 form .select2-container--default .select2-selection--multiple .select2-selection__choice {
-    background-color: #4D8077;
+    background-color: #4d8077;
     border-radius: 30px;
     color: #fff;
     font-size: 12px;
@@ -492,12 +498,12 @@ form .select2-container--default .select2-selection--multiple .select2-selection
         width: 150px;
         padding: 50px 10px;
     }
-    
+
     #logo img {
         width: 100px;
         margin-bottom: 35px;
     }
-    
+
     ul#main-menu li a {
         padding: 10px;
         gap: 20px;
@@ -512,18 +518,18 @@ form .select2-container--default .select2-selection--multiple .select2-selection
     div#content {
         padding: 30px;
     }
-    
+
     nav {
         width: 50px;
         padding-left: 0;
         padding-right: 0;
         padding-top: 20px;
     }
-    
+
     #logo {
         display: none;
     }
-    
+
     ul#main-menu li a {
         border-radius: 0;
         padding: 13px;

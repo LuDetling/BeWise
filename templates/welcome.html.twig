@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block welcome %}
+	<a href="{{path('app_projets')}}" id="logo">
+		<img src="{{ asset('img/logo.png') }}" alt="Logo TaskLinker"/>
+	</a>
+	<main id="content-welcome">
+		<h1>
+			Bienvenue sur TaskLinker
+		</h1>
+		<p>
+			Commencez dès maintenant - gratuitement
+		</p>
+		<a href="/login">Vous avez déjà un compte ?</a>
+		<a href="/login" class="btn">Se connecter</a>
+		<div>ou</div>
+		<a href="/register" class="btn">S'inscrire</a>
+	</main>
+{% endblock %}

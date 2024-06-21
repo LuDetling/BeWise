@@ -17,16 +17,15 @@ class EmployeController extends AbstractController
     public function __construct(
         private EmployeRepository $employeRepository,
         private EntityManagerInterface $entityManager,
-    )
-    {
-
+    ) {
     }
 
     #[Route('/employes', name: 'app_employes')]
     public function employes(): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
         $employes = $this->employeRepository->findAll();
-        
+
         return $this->render('employe/liste.html.twig', [
             'employes' => $employes,
         ]);
@@ -37,10 +36,10 @@ class EmployeController extends AbstractController
     {
         $employe = $this->employeRepository->find($id);
 
-        if(!$employe) {
+        if (!$employe) {
             return $this->redirectToRoute('app_employes');
         }
-        
+
         return $this->render('employe/employe.html.twig', [
             'employe' => $employe,
         ]);
@@ -51,13 +50,13 @@ class EmployeController extends AbstractController
     {
         $employe = $this->employeRepository->find($id);
 
-        if(!$employe) {
+        if (!$employe) {
             return $this->redirectToRoute('app_employes');
         }
 
         $this->entityManager->remove($employe);
         $this->entityManager->flush();
-        
+
         return $this->redirectToRoute('app_employes');
     }
 
@@ -66,14 +65,14 @@ class EmployeController extends AbstractController
     {
         $employe = $this->employeRepository->find($id);
 
-        if(!$employe) {
+        if (!$employe) {
             return $this->redirectToRoute('app_employes');
         }
 
         $form = $this->createForm(EmployeType::class, $employe);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $this->entityManager->flush();
             return $this->redirectToRoute('app_employes');
         }
@@ -81,24 +80,6 @@ class EmployeController extends AbstractController
         return $this->render('employe/employe.html.twig', [
             'employe' => $employe,
             'form' => $form->createView(),
-        ]);
-    }
-
-    #[Route('/signup', name:'app_signup')]
-    public function signup(Request $request): Response
-    {
-        $employe = new Employe();
-        $form = $this->createForm(EmployeType::class, $employe);
-        $form->handleRequest($request);
-
-        if($form->isSubmitted() && $form->isValid()){
-            $this->entityManager->persist($employe);
-            $this->entityManager->flush();
-            return $this->redirectToRoute('home');
-        }
-
-        return $this->render('employe/signup.html.twig', [
-            'form' => $form->createView()
         ]);
     }
 }

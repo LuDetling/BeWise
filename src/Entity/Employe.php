@@ -54,6 +54,9 @@ class Employe implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToMany(targetEntity: Projet::class, mappedBy: 'employes')]
     private Collection $projets;
 
+    #[ORM\Column(type: 'boolean')]
+    private $isVerified = false;
+
     public function __construct()
     {
         $this->projets = new ArrayCollection();
@@ -200,6 +203,18 @@ class Employe implements UserInterface, PasswordAuthenticatedUserInterface
         if ($this->projets->removeElement($projet)) {
             $projet->removeEmploye($this);
         }
+
+        return $this;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): static
+    {
+        $this->isVerified = $isVerified;
 
         return $this;
     }
