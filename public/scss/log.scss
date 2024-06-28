@@ -6,7 +6,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 50px 0;
+    flex-direction: column;
+    padding-bottom: 50px;
+    #logo {
+        justify-self: left;
+        margin: 52px auto 61px 52px;
+        img {
+            margin: 0;
+        }
+    }
     #content-notco {
         width: 710px;
         min-height: 698px;
@@ -14,11 +22,88 @@
         background-color: #4c8077;
         margin: auto;
         padding-bottom: 44px;
+        text-align: center;
+        color: white;
+        .btn {
+            padding: 25px;
+            border-radius: 10px;
+            width: 100%;
+            font-size: 14px;
+            font-weight: 700;
+            border: none;
+            transition: 0.3s;
+            margin: auto;
+            margin-bottom: 1rem;
+            display: block;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background-color: #1c5b50;
+            color: white;
+            &:hover {
+                background-color: white;
+                color: #1c5b50;
+            }
+        }
+        .btn-secondary {
+            background-color: #b1d89d;
+            color: #4d8077;
+            &:hover {
+                background-color: white;
+                color: #b1d89d;
+            }
+        }
+        .btn-welcome {
+            width: 224px;
+            margin: 24px auto;
+        }
+        .or {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 22px;
+            font-size: 18px;
+            &::before,
+            &::after {
+                content: "";
+                width: 139px;
+                height: 1px;
+                background-color: white;
+            }
+        }
+        a {
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
         h1 {
-            padding-top: 110px;
-            text-align: center;
             color: white;
             font-size: 34px;
+            margin: 0;
+        }
+        .h1-login {
+            padding-top: 110px;
+            margin-bottom: 46px;
+        }
+        .h1-register {
+            padding-top: 52px;
+            margin-bottom: 47px;
+        }
+        .h1-welcome {
+            padding-top: 143px;
+            margin-bottom: 24px;
+        }
+        h2 {
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 80px;
+        }
+        .already-account {
+            margin-bottom: 8px;
         }
         form {
             margin: auto;
@@ -26,27 +111,11 @@
             label {
                 color: white;
                 margin-bottom: 10px;
+                text-align: left;
             }
 
-            #input-password {
+            #inputPassword {
                 margin-bottom: 51px;
-            }
-
-            .btn-primary {
-                background-color: #1c5b50;
-                padding: 25px;
-                border-radius: 10px;
-                width: 100%;
-                font-size: 14px;
-                color: white;
-                border: none;
-                transition: 0.3s;
-                margin-bottom: 1rem;
-                cursor: pointer;
-                &:hover {
-                    background-color: white;
-                    color: #1c5b50;
-                }
             }
 
             .not-account {
@@ -61,6 +130,14 @@
                         text-decoration: underline;
                     }
                 }
+            }
+            #registration_form_plainPassword_second {
+                margin-bottom: 50px;
+            }
+            #registration_form_save {
+                @extend .btn-primary;
+                @extend .btn;
+                margin-bottom: 24px;
             }
         }
     }

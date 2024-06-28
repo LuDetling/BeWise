@@ -13,7 +13,6 @@ use App\Entity\Projet;
 use App\Form\ProjetType;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
-#[IsGranted('ROLE_USER')]
 class ProjetController extends AbstractController
 {
     public function __construct(
@@ -26,10 +25,14 @@ class ProjetController extends AbstractController
     #[Route('/', name: 'app_projets')]
     public function projets(): Response
     {
+        $hasAccess = $this->isGranted('ROLE_USER');
+        if (!$hasAccess) {
+            return $this->render('security/welcome.html.twig');
+        }
+        
         $projets = $this->projetRepository->findBy([
             'archive' => false,
         ]);
-
         return $this->render('projet/liste.html.twig', [
             'projets' => $projets,
         ]);

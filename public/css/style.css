@@ -8,7 +8,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 50px 0;
+  flex-direction: column;
+  padding-bottom: 50px;
+}
+#main-container-notco #logo {
+  justify-self: left;
+  margin: 52px auto 61px 52px;
+}
+#main-container-notco #logo img {
+  margin: 0;
 }
 #main-container-notco #content-notco {
   width: 710px;
@@ -17,12 +25,88 @@
   background-color: #4c8077;
   margin: auto;
   padding-bottom: 44px;
-}
-#main-container-notco #content-notco h1 {
-  padding-top: 110px;
   text-align: center;
   color: white;
+}
+#main-container-notco #content-notco .btn, #main-container-notco #content-notco form #registration_form_save {
+  padding: 25px;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  transition: 0.3s;
+  margin: auto;
+  margin-bottom: 1rem;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+}
+#main-container-notco #content-notco .btn-primary, #main-container-notco #content-notco form #registration_form_save {
+  background-color: #1c5b50;
+  color: white;
+}
+#main-container-notco #content-notco .btn-primary:hover, #main-container-notco #content-notco form #registration_form_save:hover {
+  background-color: white;
+  color: #1c5b50;
+}
+#main-container-notco #content-notco .btn-secondary {
+  background-color: #b1d89d;
+  color: #4d8077;
+}
+#main-container-notco #content-notco .btn-secondary:hover {
+  background-color: white;
+  color: #b1d89d;
+}
+#main-container-notco #content-notco .btn-welcome {
+  width: 224px;
+  margin: 24px auto;
+}
+#main-container-notco #content-notco .or {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  font-size: 18px;
+}
+#main-container-notco #content-notco .or::before, #main-container-notco #content-notco .or::after {
+  content: "";
+  width: 139px;
+  height: 1px;
+  background-color: white;
+}
+#main-container-notco #content-notco a {
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+}
+#main-container-notco #content-notco a:hover {
+  text-decoration: underline;
+}
+#main-container-notco #content-notco h1 {
+  color: white;
   font-size: 34px;
+  margin: 0;
+}
+#main-container-notco #content-notco .h1-login {
+  padding-top: 110px;
+  margin-bottom: 46px;
+}
+#main-container-notco #content-notco .h1-register {
+  padding-top: 52px;
+  margin-bottom: 47px;
+}
+#main-container-notco #content-notco .h1-welcome {
+  padding-top: 143px;
+  margin-bottom: 24px;
+}
+#main-container-notco #content-notco h2 {
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 80px;
+}
+#main-container-notco #content-notco .already-account {
+  margin-bottom: 8px;
 }
 #main-container-notco #content-notco form {
   margin: auto;
@@ -30,25 +114,10 @@
 #main-container-notco #content-notco form label {
   color: white;
   margin-bottom: 10px;
+  text-align: left;
 }
-#main-container-notco #content-notco form #input-password {
+#main-container-notco #content-notco form #inputPassword {
   margin-bottom: 51px;
-}
-#main-container-notco #content-notco form .btn-primary {
-  background-color: #1c5b50;
-  padding: 25px;
-  border-radius: 10px;
-  width: 100%;
-  font-size: 14px;
-  color: white;
-  border: none;
-  transition: 0.3s;
-  margin-bottom: 1rem;
-  cursor: pointer;
-}
-#main-container-notco #content-notco form .btn-primary:hover {
-  background-color: white;
-  color: #1c5b50;
 }
 #main-container-notco #content-notco form .not-account {
   color: white;
@@ -62,6 +131,12 @@
 }
 #main-container-notco #content-notco form .not-account a:hover {
   text-decoration: underline;
+}
+#main-container-notco #content-notco form #registration_form_plainPassword_second {
+  margin-bottom: 50px;
+}
+#main-container-notco #content-notco form #registration_form_save {
+  margin-bottom: 24px;
 }
 
 html,
