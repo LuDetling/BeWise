@@ -1,0 +1,67 @@
+#main-container-notco {
+    min-height: 100vh;
+    background: url("../img/background-not-co.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+    #content-notco {
+        width: 710px;
+        min-height: 698px;
+        border-radius: 30px;
+        background-color: #4c8077;
+        margin: auto;
+        padding-bottom: 44px;
+        h1 {
+            padding-top: 110px;
+            text-align: center;
+            color: white;
+            font-size: 34px;
+        }
+        form {
+            margin: auto;
+
+            label {
+                color: white;
+                margin-bottom: 10px;
+            }
+
+            #input-password {
+                margin-bottom: 51px;
+            }
+
+            .btn-primary {
+                background-color: #1c5b50;
+                padding: 25px;
+                border-radius: 10px;
+                width: 100%;
+                font-size: 14px;
+                color: white;
+                border: none;
+                transition: 0.3s;
+                margin-bottom: 1rem;
+                cursor: pointer;
+                &:hover {
+                    background-color: white;
+                    color: #1c5b50;
+                }
+            }
+
+            .not-account {
+                color: white;
+                font-size: 14px;
+                text-align: center;
+                a {
+                    color: white;
+                    font-weight: bold;
+                    text-decoration: none;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}

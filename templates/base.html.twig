@@ -19,44 +19,37 @@
 		<script src="{{ asset('js/select.js') }}"></script>
 	</head>
 	<body>
-
-		{# if connecté #}
-		{% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-			<div id="main-container-logout"> {% block welcome %}{% endblock %}
-				</div>
-			{% else %}
-				<div id="main-container">
-					<nav>
-						<a href="{{ path('app_projets') }}" id="logo">
-							<img src="{{ asset('img/logo.png') }}" alt="Logo TaskLinker"/>
+		<div id="main-container">
+			<nav>
+				<a href="{{ path('app_projets') }}" id="logo">
+					<img src="{{ asset('img/logo.png') }}" alt="Logo TaskLinker"/>
+				</a>
+				<ul id="main-menu">
+					<li class="{% if not (app.request.get('_route') starts with 'app_employe') %}active{% endif %}">
+						<a href="{{ path('app_projets') }}">
+							<i class="fa-solid fa-list-check"></i>
+							Projets
 						</a>
-						<ul id="main-menu">
-							<li class="{% if not (app.request.get('_route') starts with 'app_employe') %}active{% endif %}">
-								<a href="{{ path('app_projets') }}">
-									<i class="fa-solid fa-list-check"></i>
-									Projets
-								</a>
-							</li>
-							<li class="{% if app.request.get('_route') starts with 'app_employe' %}active{% endif %}">
-								<a href="{{ path('app_employes') }}">
-									<i class="fa-regular fa-user"></i>
-									Équipe
-								</a>
-							</li>
-						</ul>
-					</nav>
-					<main>
-						<header>
-							<div id="current-user"></div>
-							<div id="title-page"> {% block header %}{% endblock %}
-								</div>
-							</header>
-							<div id="content"> {% block body %}{% endblock %}
-								</div>
-							</main>
+					</li>
+					<li class="{% if app.request.get('_route') starts with 'app_employe' %}active{% endif %}">
+						<a href="{{ path('app_employes') }}">
+							<i class="fa-regular fa-user"></i>
+							Équipe
+						</a>
+					</li>
+				</ul>
+			</nav>
+			<main>
+				<header>
+					<div id="current-user"></div>
+					<div id="title-page"> {% block header %}{% endblock %}
 						</div>
-					{% endif %}
-				</body>
-			</html>
-		</body>
-	</html>
+					</header>
+					<div id="content"> {% block body %}{% endblock %}
+						</div>
+					</main>
+				</div>
+			</body>
+		</html>
+	</body>
+</html>
