@@ -13,7 +13,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
-#[IsGranted('ROLE_USER')]
+#[IsGranted('ROLE_ADMIN')]
 class EmployeController extends AbstractController
 {
     public function __construct(
@@ -25,7 +25,6 @@ class EmployeController extends AbstractController
     #[Route('/employes', name: 'app_employes')]
     public function employes(): Response
     {
-        $this->denyAccessUnlessGranted('ROLE_USER');
         $employes = $this->employeRepository->findAll();
 
         return $this->render('employe/liste.html.twig', [

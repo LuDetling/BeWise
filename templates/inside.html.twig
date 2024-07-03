@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+{% block body %}
+	<nav>
+		<a href="{{ path('app_projets') }}" id="logo">
+			<img src="{{ asset('img/logo.png') }}" alt="Logo TaskLinker"/>
+		</a>
+		<ul id="main-menu">
+			<li class="{% if not (app.request.get('_route') starts with 'app_employe') %}active{% endif %}">
+				<a href="{{ path('app_projets') }}">
+					<i class="fa-solid fa-list-check"></i>
+					Projets
+				</a>
+			</li>
+			<li class="{% if app.request.get('_route') starts with 'app_employe' %}active{% endif %}">
+				<a href="{{ path('app_employes') }}">
+					<i class="fa-regular fa-user"></i>
+					Équipe
+				</a>
+			</li>
+		</ul>
+	</nav>
+	<main>
+		<header>
+			<div id="current-user"></div>
+			<div id="title-page">
+				{% block header %}{% endblock %}
+			</div>
+		</header>
+		<div id="content">
+			{% block content %}{% endblock %}
+		</div>
+	</main>
+{% endblock %}

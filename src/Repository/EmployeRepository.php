@@ -53,6 +53,15 @@ class EmployeRepository extends ServiceEntityRepository implements PasswordUpgra
 //            ->getResult()
 //        ;
 //    }
+   public function findByProjectId($value): array
+   {
+       return $this->createQueryBuilder('p')
+           ->andWhere('p.projetId = :projetId')
+           ->setParameter('projetId', $value)
+           ->getQuery()
+           ->getResult()
+       ;
+   }
 
 //    public function findOneBySomeField($value): ?Employe
 //    {
