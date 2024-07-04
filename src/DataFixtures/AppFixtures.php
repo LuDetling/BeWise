@@ -53,8 +53,8 @@ class AppFixtures extends Fixture
             ->setEmail('demi@driblet.com')
             ->setStatut('CDD')
             ->setDateArrivee(new DateTime('2022-09-01'))
-            ->setPassword("admin");
-        $manager->persist($employe2);
+            ->setPassword($this->hasher->hashPassword($employe2, "admin"));
+            $manager->persist($employe2);
 
         $employe3 = new Employe();
         $employe3->setNom('Dupont')
@@ -62,7 +62,7 @@ class AppFixtures extends Fixture
             ->setEmail('marie@driblet.com')
             ->setStatut('Freelance')
             ->setDateArrivee(new DateTime('2021-12-20'))
-            ->setPassword("admin");
+            ->setPassword($this->hasher->hashPassword($employe3, "admin"));
         $manager->persist($employe3);
 
         // Création des projets

@@ -27,14 +27,11 @@ class ProjetController extends AbstractController
     public function projets(): Response
     {
 
-        $employes = $this->projetRepository->findEmployeByProjectId(1);
+        $user = $this->getUser();
+        $projets = $this->projetRepository->findByEmploye($user);
 
-        $projets = $this->projetRepository->findBy([
-            'archive' => false,
-        ]);
         return $this->render('projet/liste.html.twig', [
             'projets' => $projets,
-            'employes' => $employes
         ]);
     }
 

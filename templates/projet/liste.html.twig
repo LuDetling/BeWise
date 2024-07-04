@@ -11,9 +11,6 @@
 {% block body %}
 
 	<div id="projects-container">
-    <pre>
-        {{ dump(employes) }}
-    </pre>
 		{% for projet in projets %}
 			<article class="card-project">
 				<a href="{{ path('app_projet', {id: projet.id}) }}">
