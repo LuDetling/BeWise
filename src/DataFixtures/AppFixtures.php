@@ -65,6 +65,16 @@ class AppFixtures extends Fixture
             ->setPassword($this->hasher->hashPassword($employe3, "admin"));
         $manager->persist($employe3);
 
+        $employe4 = new Employe();
+        $employe4->setNom('Detling')
+            ->setPrenom('Lucas')
+            ->setEmail('lucas.detling@gmail.com')
+            ->setStatut('CDD')
+            ->setDateArrivee(new DateTime('2019-06-14'))
+            ->setPassword($this->hasher->hashPassword($employe1, "lucas"))
+            ->setRoles(['ROLE_ADMIN']);
+        $manager->persist($employe4);
+
         // Création des projets
         $projet1 = new Projet();
         $projet1

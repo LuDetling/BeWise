@@ -26,15 +26,26 @@ class ProjetController extends AbstractController
     #[Route('/', name: 'app_projets')]
     public function projets(): Response
     {
-
+        /**@var $user Employe */
         $user = $this->getUser();
-        $projets = $this->projetRepository->findByEmploye($user);
+        // $projets = $this->projetRepository->findByEmploye($user);
+        $hasAccess = $this->isGranted('ROLE_ADMIN');
+
+        if ($hasAccess) {
+            $projets = $this->projetRepository->findBy([
+                "archive" => false
+            ]);
+        } else {
+            $projets = $user->getProjets();
+        }
 
         return $this->render('projet/liste.html.twig', [
             'projets' => $projets,
+            'user' => $user
         ]);
     }
 
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/projets/ajouter', name: 'app_projet_add')]
     public function ajouterProjet(Request $request): Response
     {
@@ -55,7 +66,8 @@ class ProjetController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
-
+    // voter
+    // #[IsGranted()]
     #[Route('/projets/{id}', name: 'app_projet')]
     public function projet(int $id): Response
     {
