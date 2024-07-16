@@ -11,6 +11,7 @@ use App\Repository\StatutRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\Projet;
 use App\Form\ProjetType;
+use App\Security\Voter\ProjetVoter;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[IsGranted("ROLE_USER")]
@@ -28,7 +29,6 @@ class ProjetController extends AbstractController
     {
         /**@var $user Employe */
         $user = $this->getUser();
-        // $projets = $this->projetRepository->findByEmploye($user);
         $hasAccess = $this->isGranted('ROLE_ADMIN');
 
         if ($hasAccess) {
@@ -36,7 +36,7 @@ class ProjetController extends AbstractController
                 "archive" => false
             ]);
         } else {
-            $projets = $user->getProjets();
+            $projets = $user->getProjets()->filter(fn(Projet $projet) => !$projet->isArchive());
         }
 
         return $this->render('projet/liste.html.twig', [
@@ -67,8 +67,8 @@ class ProjetController extends AbstractController
         ]);
     }
     // voter
-    // #[IsGranted()]
     #[Route('/projets/{id}', name: 'app_projet')]
+    #[IsGranted('PROJET_VIEW', subject: 'id')]
     public function projet(int $id): Response
     {
         $statuts = $this->statutRepository->findAll();
@@ -77,10 +77,13 @@ class ProjetController extends AbstractController
         if (!$projet || $projet->isArchive()) {
             return $this->redirectToRoute('app_projets');
         }
+        $user = $this->getUser();
+        $test =  $projet->getEmployes()->contains($user);
 
         return $this->render('projet/projet.html.twig', [
             'projet' => $projet,
             'statuts' => $statuts,
+            'test' => $test
         ]);
     }
 

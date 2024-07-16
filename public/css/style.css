@@ -139,6 +139,28 @@
   margin-bottom: 24px;
 }
 
+.profile {
+  text-decoration: none;
+  width: 55px;
+  height: 55px;
+  background-color: white;
+  border-radius: 50%;
+  color: #1c5b50;
+  border: 1px solid #1c5b50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  margin-left: auto;
+  transition: 0.3s;
+}
+.profile:hover {
+  border-color: white;
+  background-color: #1c5b50;
+  color: white;
+}
+
 html,
 body {
   margin: 0;

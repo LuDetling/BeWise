@@ -39,11 +39,14 @@
 							</a>
 						</li>
 					{% endif %}
+
 				</ul>
 			</nav>
 			<main>
 				<header>
-					<div id="current-user"></div>
+					{% if is_granted('ROLE_USER') %}
+						<a href="{{ path('app_logout') }}" class="profile">{{app.user.getAvatar}}</a>
+					{% endif %}
 					<div id="title-page"> {% block header %}{% endblock %}
 						</div>
 					</header>

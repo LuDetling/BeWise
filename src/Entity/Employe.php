@@ -218,4 +218,9 @@ class Employe implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    public function getAvatar(): string
+    {
+        return substr($this->getPrenom(), 0, 1) . " " . substr($this->getNom(), 0, 1);
+    }
 }
