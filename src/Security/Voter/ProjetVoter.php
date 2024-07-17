@@ -3,7 +3,6 @@
 namespace App\Security\Voter;
 
 use App\Entity\Employe;
-use App\Repository\EmployeRepository;
 use App\Repository\ProjetRepository;
 use App\Repository\TacheRepository;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
@@ -12,11 +11,10 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class ProjetVoter extends Voter
 {
-    public const EDIT = 'PROJET_EDIT';
-    public const VIEW = 'PROJET_VIEW';
-
-    public function __construct(private ProjetRepository $projetRepository, private TacheRepository $tacheRepository)
-    {
+    public function __construct(
+        private ProjetRepository $projetRepository,
+        private TacheRepository $tacheRepository
+    ) {
     }
 
     protected function supports(string $attribute, mixed $subject): bool
@@ -28,11 +26,10 @@ class ProjetVoter extends Voter
     {
 
         $user = $token->getUser();
-        
+
         if ($attribute === "projet_view") {
             $projet = $this->projetRepository->find($subject);
         } else {
-            $projet = $user->getProjets()->contains($subject);
             $tache = $this->tacheRepository->find($subject);
             $projet = $tache->getProjet();
         }

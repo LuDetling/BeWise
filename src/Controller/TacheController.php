@@ -24,8 +24,8 @@ class TacheController extends AbstractController
     ) {
     }
 
-    #[IsGranted('tache_view', subject: 'id')]
     #[Route('/projets/{id}/taches/ajouter', name: 'app_tache_add')]
+    #[IsGranted('projet_view', subject: 'id')]
     public function ajouterTache(int $id, Request $request): Response
     {
         $projet = $this->projetRepository->find($id);
@@ -51,8 +51,8 @@ class TacheController extends AbstractController
         ]);
     }
 
-    #[IsGranted('tache_view', subject: 'id')]
     #[Route('/taches/{id}/supprimer', name: 'app_tache_delete')]
+    #[IsGranted('tache_view', subject: 'id')]
     public function supprimerTache(int $id): Response
     {
         $tache = $this->tacheRepository->find($id);
