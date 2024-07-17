@@ -68,7 +68,7 @@ class ProjetController extends AbstractController
     }
     // voter
     #[Route('/projets/{id}', name: 'app_projet')]
-    #[IsGranted('PROJET_VIEW', subject: 'id')]
+    #[IsGranted('projet_view', subject: 'id')]
     public function projet(int $id): Response
     {
         $statuts = $this->statutRepository->findAll();
