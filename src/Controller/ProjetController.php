@@ -87,6 +87,7 @@ class ProjetController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/projets/{id}/archiver', name: 'app_projet_archive')]
     public function archiverProjet(int $id): Response
     {
@@ -102,7 +103,7 @@ class ProjetController extends AbstractController
         return $this->redirectToRoute('app_projets');
     }
 
-
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/projets/{id}/editer', name: 'app_projet_edit')]
     public function editerProjet(int $id, Request $request): Response
     {
